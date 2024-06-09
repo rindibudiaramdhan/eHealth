@@ -22,6 +22,7 @@ class PatientController extends Controller
         $columnLabels = [
             'medical_record_number' => 'Nomor Rekam Medis',
             'name' => 'Nama Lengkap',
+            'nik' => 'NIK',
             'birth_date' => 'Tanggal Lahir',
             'gender' => 'Jenis Kelamin',
             'address' => 'Alamat',
@@ -73,6 +74,7 @@ class PatientController extends Controller
         $request->validate([
             'medical_record_number' => 'required|unique:patients',
             'name' => 'required',
+            'nik' => 'required|min:16|max:16',
             'birth_date' => 'required|date',
             'gender' => 'required',
             'address' => 'required',
@@ -132,6 +134,7 @@ class PatientController extends Controller
         $request->validate([
             'medical_record_number' => 'required',
             'name' => 'required',
+            'nik' => 'required|min:16|max:16',
             'birth_date' => 'required|date',
             'gender' => 'required',
             'address' => 'required',

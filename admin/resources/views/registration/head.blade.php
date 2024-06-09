@@ -5,7 +5,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>SB Admin 2 - Tables</title>
+    <title>eHealth - Pendaftaran</title>
 
     <!-- Custom fonts for this template -->
     <link href="{{ asset('admin-ui/vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet" type="text/css">
@@ -18,4 +18,6 @@
 
     <!-- Custom styles for this page -->
     <link href="{{ asset('admin-ui/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
 @endsection

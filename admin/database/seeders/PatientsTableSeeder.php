@@ -23,6 +23,7 @@ class PatientsTableSeeder extends Seeder
             DB::table('patients')->insert([
                 'medical_record_number' => $faker->unique()->numerify('MRN######'),
                 'name' => $faker->name,
+                'nik' => $faker->nik,
                 'birth_date' => $faker->date('Y-m-d', '2000-01-01'),
                 'gender' => $faker->randomElement(['male', 'female']),
                 'address' => $faker->address,

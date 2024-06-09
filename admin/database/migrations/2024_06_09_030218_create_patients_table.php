@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('medical_record_number')->unique();
             $table->string('name');
+            $table->string('nik');
             $table->date('birth_date');
             $table->enum('gender', ['male', 'female']);
             $table->string('address')->nullable();

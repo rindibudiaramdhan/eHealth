@@ -10,14 +10,10 @@ class Patient extends Model
 {
     use SoftDeletes, HasFactory;
 
-    /**
-     * Atribut yang dapat diisi secara massal.
-     *
-     * @var array
-     */
     protected $fillable = [
         'medical_record_number',
         'name',
+        'nik',
         'birth_date',
         'gender',
         'address',
