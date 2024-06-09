@@ -11,6 +11,7 @@ class PaymentController extends Controller
     {
         $templateData = [
             'sidebar' => 'payment',
+            'access' => 'admin',
         ];
 
         return view('payment', $templateData);

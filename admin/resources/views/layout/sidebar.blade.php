@@ -22,6 +22,8 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
+            @if ($access == 'admin')
+
             <!-- Heading -->
             <div class="sidebar-heading">
                 Master
@@ -35,6 +37,8 @@
 
             <!-- Divider -->
             <hr class="sidebar-divider">
+
+            @endif
 
             <!-- Heading -->
             <div class="sidebar-heading">

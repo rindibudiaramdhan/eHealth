@@ -11,6 +11,7 @@ class RegistrationController extends Controller
     {
         $templateData = [
             'sidebar' => 'registration',
+            'access' => 'admin',
         ];
 
         return view('registration', $templateData);

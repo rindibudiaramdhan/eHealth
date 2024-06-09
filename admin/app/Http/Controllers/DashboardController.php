@@ -11,6 +11,7 @@ class DashboardController extends Controller
     {
         $templateData = [
             'sidebar' => 'dashboard',
+            'access' => 'admin',
         ];
 
         return view('dashboard', $templateData);
