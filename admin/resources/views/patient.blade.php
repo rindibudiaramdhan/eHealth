@@ -9,47 +9,45 @@
 
 @section('content')
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Data Pasien</h1>
-    <p class="mb-4">DataTables is a third party plugin that is used to generate the demo table below.
-        For more information about DataTables, please visit the <a target="_blank"
-            href="https://datatables.net">official DataTables documentation</a>.</p>
+    <h1 class="h3 mb-2 text-gray-800">Master Data Pasien</h1>
+    <p class="mb-4">Halaman Master Data Pasien adalah pusat informasi untuk mengelola data pasien dalam sistem manajemen rumah sakit atau klinik. Halaman ini dirancang untuk menyediakan akses mudah dan cepat kepada staf medis dan administrasi untuk melihat, menambah, mengubah, dan menghapus informasi pasien. Akses ke halaman ini dibatasi hanya untuk pengguna dengan hak akses admin untuk memastikan keamanan dan integritas data pasien.</p>
 
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">DataTables Example</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Pasien</h6>
         </div>
         <div class="card-body">
+            <div class="col-xl-8 col-lg-7 pb-3">
+                <a class="btn btn-sm btn-success" href="{{ route('patient-export') }}"><i class="fas fa-file-excel"></i> Export</a>
+            </div>
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            @foreach ($readable_columns as $col)
+                            <th>{{ $col }}</th>
+                            @endforeach
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
-                            <th>Name</th>
-                            <th>Position</th>
-                            <th>Office</th>
-                            <th>Age</th>
-                            <th>Start date</th>
-                            <th>Salary</th>
+                            @foreach ($readable_columns as $col)
+                            <th>{{ $col }}</th>
+                        @endforeach
                         </tr>
                     </tfoot>
                     <tbody>
                         @foreach ($data as $val)
                         <tr>
-                            <td>{{ $val->name }}</td>
+                            @foreach ($columns as $col)
+                            <td>{{ $val[$col] }}</td>
+                            @endforeach
+                            {{-- <td>{{ $val->name }}</td>
                             <td>{{ $val->position }}</td>
                             <td>{{ $val->office }}</td>
                             <td>{{ $val->age }}</td>
-                            <td>{{ $val->salary }}</td>
+                            <td>{{ $val->salary }}</td> --}}
                         </tr>
                         @endforeach
                     </tbody>

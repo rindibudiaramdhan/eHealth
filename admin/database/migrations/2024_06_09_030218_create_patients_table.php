@@ -13,12 +13,16 @@ return new class extends Migration
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
+            $table->string('medical_record_number')->unique();
             $table->string('name');
-            $table->string('position');
-            $table->string('office');
-            $table->string('age');
-            $table->string('start_date');
-            $table->string('salary');
+            $table->date('birth_date');
+            $table->enum('gender', ['male', 'female']);
+            $table->string('address')->nullable();
+            $table->string('phone')->nullable();
+            $table->string('emergency_contact')->nullable();
+            $table->string('blood_type')->nullable();
+            $table->text('allergies')->nullable();
+            $table->boolean('is_active')->default(true);
             $table->timestamps();
         });
     }

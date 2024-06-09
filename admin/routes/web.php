@@ -12,5 +12,6 @@ Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 Route::get('/patient', [PatientController::class, 'index'])->name('patient');
+Route::get('/patients/export', [PatientController::class, 'export'])->name('patient-export');;
 Route::get('/payment', [PaymentController::class, 'index'])->name('payment');
 Route::get('/registration', [RegistrationController::class, 'index'])->name('registration');
