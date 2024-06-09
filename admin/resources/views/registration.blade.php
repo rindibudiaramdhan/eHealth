@@ -4,7 +4,7 @@
 @extends('layout.sidebar')
 @extends('layout.navbar')
 @extends('layout.footer')
-{{-- @extends('dashboard.modal') --}}
+@extends('layout.modal')
 @extends('patient.script')
 
 @section('content')
