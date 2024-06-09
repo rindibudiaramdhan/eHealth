@@ -16,13 +16,8 @@ class PatientController extends Controller
         $patient = Patient::get()->toArray();
 
         $columns = Schema::getColumnListing('patients');
-        // Kolom yang ingin disembunyikan
         $hiddenColumns = ['id', 'is_active', 'created_at', 'updated_at'];
-
-        // Filter kolom yang ingin disembunyikan
         $visibleColumns = array_diff($columns, $hiddenColumns);
-
-        // Map kolom ke label deskriptif
         $columnLabels = [
             'medical_record_number' => 'Nomor Rekam Medis',
             'name' => 'Nama Lengkap',
@@ -36,7 +31,6 @@ class PatientController extends Controller
             'is_active' => 'Status Aktif',
         ];
 
-        // Ubah kolom menjadi label yang lebih deskriptif
         $readableColumns = array_map(function($column) use ($columnLabels) {
             return $columnLabels[$column] ?? $column;
         }, $visibleColumns);
@@ -75,7 +69,6 @@ class PatientController extends Controller
      */
     public function store(Request $request)
     {
-        // Validasi data yang dikirimkan dari formulir
         $request->validate([
             'medical_record_number' => 'required|unique:patients',
             'name' => 'required',
@@ -89,7 +82,6 @@ class PatientController extends Controller
             'is_active' => 'required',
         ]);
 
-        // Simpan data pasien ke dalam database
         $patient = new Patient();
         $patient->medical_record_number = $request->medical_record_number;
         $patient->name = $request->name;
@@ -103,7 +95,56 @@ class PatientController extends Controller
         $patient->is_active = $request->is_active;
         $patient->save();
 
-        // Redirect ke halaman tertentu dengan pesan sukses
         return redirect('patient')->with('success', 'Data pasien berhasil disimpan.');
+    }
+
+    /**
+     * Menampilkan formulir edit untuk pasien yang diberikan.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        $patient = Patient::findOrFail($id);
+
+        $templateData = [
+            'sidebar' => 'patient',
+            'access' => 'admin',
+            'data' => $patient,
+        ];
+
+        return view('patient-edit', $templateData);
+    }
+
+    /**
+     * Menyimpan perubahan data pasien yang diedit.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        echo json_encode(['request' => $request->all(), 'id' => $id]);
+
+        $request->validate([
+            'medical_record_number' => 'required',
+            'name' => 'required',
+            'birth_date' => 'required|date',
+            'gender' => 'required',
+            'address' => 'required',
+            'phone' => 'required',
+            'emergency_contact' => 'required',
+            'blood_type' => 'required',
+            'allergies' => 'required',
+            'is_active' => 'required',
+        ]);
+
+        $patient = Patient::findOrFail($id);
+
+        $patient->update($request->all());
+
+        return redirect('patient')->with('success', 'Data pasien berhasil diperbarui.');
     }
 }

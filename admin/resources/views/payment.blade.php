@@ -6,6 +6,8 @@
 @extends('layout.footer')
 @extends('layout.modal')
 @extends('patient.script')
+@extends('layout.success')
+@extends('layout.errors')
 
 @section('content')
     <!-- Page Heading -->

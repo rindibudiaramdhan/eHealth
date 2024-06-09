@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="id">
     <head>
         @yield('head')
     </head>
@@ -21,6 +21,8 @@
                     <!-- End of Topbar -->
                     <!-- Begin Page Content -->
                     <div class="container-fluid">
+                        @yield('success')
+                        @yield('errors')
                         @yield('content')
                     </div>
                     <!-- /.container-fluid -->

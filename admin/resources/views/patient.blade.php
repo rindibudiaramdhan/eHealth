@@ -6,6 +6,8 @@
 @extends('layout.footer')
 @extends('layout.modal')
 @extends('patient.script')
+@extends('layout.success')
+@extends('layout.errors')
 
 @section('content')
     <!-- Page Heading -->
@@ -29,13 +31,15 @@
                             @foreach ($readable_columns as $col)
                             <th>{{ $col }}</th>
                             @endforeach
+                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <tfoot>
                         <tr>
                             @foreach ($readable_columns as $col)
                             <th>{{ $col }}</th>
-                        @endforeach
+                            @endforeach
+                            <th>Aksi</th>
                         </tr>
                     </tfoot>
                     <tbody>
@@ -44,12 +48,11 @@
                             @foreach ($columns as $col)
                             <td>{{ $val[$col] }}</td>
                             @endforeach
-                            {{-- <td>{{ $val->name }}</td>
-                            <td>{{ $val->position }}</td>
-                            <td>{{ $val->office }}</td>
-                            <td>{{ $val->age }}</td>
-                            <td>{{ $val->salary }}</td> --}}
-                        </tr>
+                            <td>
+                                <a class="btn btn-sm btn-block btn-info" href="{{ route('patient/edit', $val['id']) }}">Edit</a>
+                                <a class="btn btn-sm btn-block btn-danger" href="{{ route('patient/delete', $val['id']) }}">Hapus</a>
+                            </td>
+                            </tr>
                         @endforeach
                     </tbody>
                 </table>
