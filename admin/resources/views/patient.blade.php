@@ -19,6 +19,7 @@
         </div>
         <div class="card-body">
             <div class="col-xl-8 col-lg-7 pb-3">
+                <a class="btn btn-sm btn-primary" href="{{ route('patient/add') }}"><i class="fas fa-plus"></i> Tambah Pasien</a>
                 <a class="btn btn-sm btn-success" href="{{ route('patient-export') }}"><i class="fas fa-file-excel"></i> Export</a>
             </div>
             <div class="table-responsive">
