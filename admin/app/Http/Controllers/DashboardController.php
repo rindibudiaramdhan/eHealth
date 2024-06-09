@@ -9,6 +9,10 @@ class DashboardController extends Controller
 {
     public function index(): View
     {
-        return view('dashboard');
+        $templateData = [
+            'sidebar' => 'dashboard',
+        ];
+
+        return view('dashboard', $templateData);
     }
 }

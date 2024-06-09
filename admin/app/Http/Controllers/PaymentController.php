@@ -5,14 +5,14 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
-class PatientController extends Controller
+class PaymentController extends Controller
 {
     public function index(): View
     {
         $templateData = [
-            'sidebar' => 'patient',
+            'sidebar' => 'payment',
         ];
 
-        return view('patient', $templateData);
+        return view('payment', $templateData);
     }
 }

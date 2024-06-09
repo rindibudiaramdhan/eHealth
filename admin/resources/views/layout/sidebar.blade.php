@@ -13,7 +13,7 @@
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Dashboard -->
-            <li class="nav-item active">
+            <li class="nav-item {{ $sidebar === 'dashboard' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
@@ -27,7 +27,7 @@
                 Master
             </div>
 
-            <li class="nav-item">
+            <li class="nav-item {{ $sidebar === 'patient' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('patient') }}">
                     <i class="fas fa-fw fa-chart-area"></i>
                     <span>Data Pasien</span></a>
@@ -41,14 +41,14 @@
                 Transaksi
             </div>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('patient') }}">
+            <li class="nav-item {{ $sidebar === 'registration' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('registration') }}">
                     <i class="fas fa-fw fa-file-signature"></i>
                     <span>Pendaftaran</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="{{ route('patient') }}">
+            <li class="nav-item {{ $sidebar === 'payment' ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('payment') }}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Pembayaran</span></a>
             </li>
