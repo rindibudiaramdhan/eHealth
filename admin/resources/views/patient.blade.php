@@ -4,7 +4,7 @@
 @extends('layout.sidebar')
 @extends('layout.navbar')
 @extends('layout.footer')
-@extends('layout.modal')
+@extends('patient.modal')
 @extends('patient.script')
 @extends('layout.success')
 @extends('layout.errors')
@@ -50,7 +50,7 @@
                             @endforeach
                             <td>
                                 <a class="btn btn-sm btn-block btn-info" href="{{ route('patient/edit', $val['id']) }}">Edit</a>
-                                <a class="btn btn-sm btn-block btn-danger" href="{{ route('patient/delete', $val['id']) }}">Hapus</a>
+                                <a class="btn btn-sm btn-block btn-danger" href="#" data-toggle="modal" data-target="#deleteModal" data-id="{{ $val['id'] }}">Hapus</a>
                             </td>
                             </tr>
                         @endforeach

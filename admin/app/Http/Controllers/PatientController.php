@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Exports\PatientsExport;
 use App\Models\Patient;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\View\View;
@@ -16,7 +17,7 @@ class PatientController extends Controller
         $patient = Patient::get()->toArray();
 
         $columns = Schema::getColumnListing('patients');
-        $hiddenColumns = ['id', 'is_active', 'created_at', 'updated_at'];
+        $hiddenColumns = ['id', 'is_active', 'created_at', 'updated_at', 'deleted_at'];
         $visibleColumns = array_diff($columns, $hiddenColumns);
         $columnLabels = [
             'medical_record_number' => 'Nomor Rekam Medis',
@@ -146,5 +147,13 @@ class PatientController extends Controller
         $patient->update($request->all());
 
         return redirect('patient')->with('success', 'Data pasien berhasil diperbarui.');
+    }
+
+    public function destroy($id)
+    {
+        $patient = Patient::findOrFail($id);
+        $patient->delete();
+
+        return response()->json(['message' => 'Pasien berhasil dihapus'], JsonResponse::HTTP_OK);
     }
 }
