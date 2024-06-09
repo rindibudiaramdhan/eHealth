@@ -1,5 +1,4 @@
-
-
+@section('script')
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('admin-ui/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('admin-ui/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
@@ -17,6 +16,4 @@
     <!-- Page level custom scripts -->
     <script src="{{ asset('admin-ui/js/demo/datatables-demo.js') }}"></script>
 
-</body>
-
-</html>
+@endsection
