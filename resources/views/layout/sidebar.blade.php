@@ -31,7 +31,7 @@
 
             <li class="nav-item {{ $sidebar === 'patient' ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('patient') }}">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-fw fa-users"></i>
                     <span>Data Pasien</span></a>
             </li>
 
