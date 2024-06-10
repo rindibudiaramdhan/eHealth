@@ -44,6 +44,7 @@ class PatientController extends Controller
             'columns' => $visibleColumns,
             'readable_columns' => $readableColumns,
             'data' => $patient,
+            'user' => Auth::user()
         ];
 
         return view('patient', $templateData);
@@ -59,6 +60,7 @@ class PatientController extends Controller
         $templateData = [
             'sidebar' => 'patient',
             'access' => 'admin',
+            'user' => Auth::user()
         ];
 
         return view('patient-add', $templateData);
@@ -116,6 +118,7 @@ class PatientController extends Controller
             'sidebar' => 'patient',
             'access' => 'admin',
             'data' => $patient,
+            'user' => Auth::user()
         ];
 
         return view('patient-edit', $templateData);

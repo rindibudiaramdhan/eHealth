@@ -8,6 +8,7 @@ use App\Models\Polis;
 use App\Models\Registration;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\View\View;
 use Maatwebsite\Excel\Facades\Excel;
@@ -33,6 +34,7 @@ class RegistrationController extends Controller
             'access' => '',
             'readable_columns' => $readableColumns,
             'data' => $data,
+            'user' => Auth::user()
         ];
 
         return view('registration', $templateData);
@@ -53,6 +55,7 @@ class RegistrationController extends Controller
             'access' => '',
             'patients' => $patients,
             'polis' => $polis,
+            'user' => Auth::user()
         ];
 
         return view('registration-add', $templateData);
@@ -101,6 +104,7 @@ class RegistrationController extends Controller
             'data' => $registration,
             'patients' => $patients,
             'polis' => $polis,
+            'user' => Auth::user()
         ];
 
         return view('registration-edit', $templateData);
