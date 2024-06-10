@@ -4,7 +4,10 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\RegistrationController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
+
+App::setLocale('id');
 
 Route::get('/', function () {
     return view('welcome');
