@@ -13,11 +13,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
+        User::factory()->create([
+            'name' => 'Operator',
+            'email' => 'operator@ehealth.test',
+            'role' => 'operator',
+            'password' => '$2y$12$oRX1u0.tmL0VwXFY66U9buwfvQWixU6DrsIWjqF0QhF0JxwkjAnG.'
+        ]);
 
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'Admin',
+            'email' => 'admin@ehealth.test',
+            'password' => '$2y$12$oRX1u0.tmL0VwXFY66U9buwfvQWixU6DrsIWjqF0QhF0JxwkjAnG.'
         ]);
+
+        $this->call(PatientsTableSeeder::class);
+        $this->call(PolisTableSeeder::class);
     }
 }
