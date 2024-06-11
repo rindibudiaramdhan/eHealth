@@ -60,8 +60,7 @@ jobs:
         DB_CONNECTION: mysql
         DB_DATABASE: laravel
         DB_PORT: 33306
-        DB_USERNAME: user
-        DB_PASSWORD: secret
+        DB_USERNAME: root
 
       run: php artisan migrate
 
@@ -77,8 +76,7 @@ jobs:
         DB_CONNECTION: mysql
         DB_DATABASE: laravel
         DB_PORT: 33306
-        DB_USERNAME: user
-        DB_PASSWORD: secret
+        DB_USERNAME: root
 
       run: vendor/bin/phpunit --testdox --coverage-clover=report/clover.xml
 # Code Climate Coverage
