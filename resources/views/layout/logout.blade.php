@@ -13,7 +13,19 @@
             <div class="modal-body">Apakah Anda yakin akan logout?</div>
             <div class="modal-footer">
                 <button class="btn btn-secondary" type="button" data-dismiss="modal">Kembali</button>
-                <a class="btn btn-danger" href="#" id="btn-logout">Logout</a>
+                {{-- <a class="btn btn-danger" href="#" id="btn-logout">Logout</a> --}}
+
+                {{-- <a class="nav-link" href="{{ route('logout') }}" data-toggle="modal" data-target="#logoutModal">
+                    <i class="fas fa-fw fa-sign-out-alt"></i>
+                    <span>Logout</span></a> --}}
+
+                <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <button type="submit" class="btn btn-danger">
+                        {{ __('Log Out') }}
+                    </button>
+                </form>
             </div>
         </div>
     </div>

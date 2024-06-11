@@ -19,8 +19,12 @@
                         <form action="{{ route('patient/insert') }}" method="POST">
                             @csrf
                             <div class="form-group">
-                                <label for="medical_record_number">Nomor Rekam Medis</label>
+                                <label for="nik">Nomor Rekam Medis</label>
                                 <input type="text" name="medical_record_number" id="medical_record_number" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="medical_record_number">NIK</label>
+                                <input type="text" name="nik" id="nik" class="form-control" required>
                             </div>
                             <div class="form-group">
                                 <label for="name">Nama Lengkap</label>

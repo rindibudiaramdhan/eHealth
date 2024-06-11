@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 App::setLocale('id');
 
 Route::get('/', function () {
+    // return view('welcome');
     return view('welcome');
 });
 

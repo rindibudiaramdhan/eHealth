@@ -24,6 +24,10 @@
                                 <input type="text" name="medical_record_number" id="medical_record_number" class="form-control" value="{{ $data->medical_record_number }}" required>
                             </div>
                             <div class="form-group">
+                                <label for="nik">NIK</label>
+                                <input type="text" name="nik" id="nik" class="form-control" value="{{ $data->nik }}" required>
+                            </div>
+                            <div class="form-group">
                                 <label for="name">Nama Lengkap</label>
                                 <input type="text" name="name" id="name" class="form-control" value="{{ $data->name }}" required>
                             </div>
