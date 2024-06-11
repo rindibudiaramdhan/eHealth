@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\View\View;
-use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Excel;
 
 class PatientController extends Controller
 {
@@ -52,7 +52,7 @@ class PatientController extends Controller
 
     public function export()
     {
-        return Excel::download(new PatientsExport, 'patients.xlsx');
+        return Patient::query()->downloadExcel('patient.xlsx', Excel::XLSX, true);
     }
 
     public function add()

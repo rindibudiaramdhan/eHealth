@@ -3,15 +3,16 @@
 namespace App\Exports;
 
 use App\Models\Patient;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Excel;
 
-class PatientsExport implements FromCollection
+class PatientsExport implements FromQuery
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
+    use Exportable;
+
+    public function query()
     {
-        return Patient::all();
+        return Patient::query();
     }
 }

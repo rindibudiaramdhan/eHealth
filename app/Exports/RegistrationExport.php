@@ -3,15 +3,16 @@
 namespace App\Exports;
 
 use App\Models\Registration;
-use Maatwebsite\Excel\Concerns\FromCollection;
+use Maatwebsite\Excel\Concerns\FromQuery;
+use Maatwebsite\Excel\Concerns\Exportable;
+use Maatwebsite\Excel\Excel;
 
-class RegistrationExport implements FromCollection
+class RegistrationExport implements FromQuery
 {
-    /**
-    * @return \Illuminate\Support\Collection
-    */
-    public function collection()
+    use Exportable;
+
+    public function query()
     {
-        return Registration::all();
+        return Registration::query();
     }
 }

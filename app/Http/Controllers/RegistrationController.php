@@ -11,7 +11,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\View\View;
-use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Excel;
 
 class RegistrationController extends Controller
 {
@@ -42,7 +42,7 @@ class RegistrationController extends Controller
 
     public function export()
     {
-        return Excel::download(new RegistrationExport, 'registration.xlsx');
+        return Registration::query()->downloadExcel('registration.xlsx', Excel::XLSX, true);
     }
 
     public function add()

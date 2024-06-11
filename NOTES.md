@@ -89,5 +89,5 @@ Route::get('users/export/', [UsersController::class, 'export']);
 - Laravel References: https://laravel.com/docs/11.x/localization#publishing-the-language-files
 - Medium References: https://syofyanzuhad.medium.com/laravel-indonesian-validation-language-ad172d3936bd
 
-## Test Coverage
+## Get Maintainability & Coverage Badge
 Codeclimate References: https://medium.com/@budiaramdhanrindi/menampilkan-test-coverage-codeclimate-di-repository-github-studi-kasus-php-laravel-9753878f56c8
